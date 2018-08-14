@@ -9,7 +9,7 @@ if [ -e $JOB.vasp ]
 then
  /bin/rm $JOB.vasp
 fi
-echo "---------------------------------------------------------------------------------------"
+echo -e "\033[40;33m --------------------------------------------------------------------------------------- \033[0m"
 echo "This script is for running a single VASP job"
 echo "To run a series of VASP jobs, you have to use"
 echo "command"
@@ -18,7 +18,8 @@ echo "where script JOB describes how to run these"
 echo "jobs in sequence"
 echo "All input files have to be in this directory"
 echo "Thank you!"
-echo "---------------------------------------------------------------------------------------"
+echo -e "\033[40;33m --------------------------------------------------------------------------------------- \033[0m"
+
 
 QUE=1cpu
 NCPUS=1
@@ -27,11 +28,12 @@ MPI=1
 echo "How many CPUs do you want to run your job? "
 echo "1cpu, 20cpu, 40cpu, 80cpu, 120cpu, 160cpu, 200cpu, 300cpu, 500cpu, 1000cpu"
 echo "For simple job or test ,please try: 20cput, 40cput, 80cput"
+echo -e "\033[44;33m Not recommended using more than 80cpu \033[0m"
 echo "Please don't waste our resources since someone have to pay for it, THX!! :))) [$QUE] "
 read QUE
 echo "setting your mpi [$MPI]"
 read MPI
-echo "---------------------------------------------------------------------------------------"
+echo -e "\033[40;33m --------------------------------------------------------------------------------------- \033[0m"
 exe='/home/u0/j31lee00/vasp.5.4.4/bin/intel_2017/vasp_std'
 echo "This script was modified first by Shih-Kuang Lee on May 26 2018"
 
