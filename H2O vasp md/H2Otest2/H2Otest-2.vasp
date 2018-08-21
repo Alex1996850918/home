@@ -1,0 +1,26 @@
+#!/bin/bash
+#PBS -N H2Otest-2
+#PBS -e H2Otest-2.stderr
+#PBS -o H2Otest-2.stdout
+#PBS -l select=4:ncpus=20:mpiprocs=5
+#PBS -q cf160
+#PBS -P ACD107023
+#PBS -M alex850918@gmail.com
+#PBS -m be 
+
+cd /work1/j31lee00/VASP-MDtest/H2Otest2
+
+module purge
+module load intel/2017_u4 
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+
+echo "Your VASP job starts at  `date` "
+
+mpiexec.hydra -PSM2 /home/u0/j31lee00/vasp.5.4.4/bin/intel_2017/vasp_std
+
+wait
+
+
+echo "Your VASP job completed at  `date` "
+
+
